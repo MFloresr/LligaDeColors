@@ -1,12 +1,11 @@
 
-public class Equipo {
+public class Equipo implements Comparable<Equipo> {
 
     private String nombre;
     private int victoria;
     private int empate;
     private int derrota;
     private int puntuacion;
-
 
 
 
@@ -74,5 +73,16 @@ public class Equipo {
                 ", derrota=" + derrota +
                 ", puntuacion=" + puntuacion +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Equipo o) {
+        if (puntuacion < o.puntuacion) {
+            return 1;
+        }
+        if (puntuacion > o.puntuacion) {
+            return -1;
+        }
+        return 0;
     }
 }

@@ -2,7 +2,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
+import java.util.*;
 
 
 public class Processar extends DefaultHandler {
@@ -98,12 +98,15 @@ public class Processar extends DefaultHandler {
 
     public void endDocument() throws SAXException {
         for (int i = 0; i < equipos.size(); i++) {
+            int puntuacion = equipos.get(i).getVictoria()*3+equipos.get(i).getEmpate();
+            equipos.get(i).setPuntuacion(puntuacion);
+            //System.out.println(equipos.get(i));
+        }
+        Collections.sort(equipos);
+        for (int i = 0; i < equipos.size(); i++) {
             System.out.println(equipos.get(i));
         }
-
-        for (int x = 0; x < resultado.size(); x++) {
-            System.out.println(resultado.get(x));
-        }
+        System.out.println("");
     }
 
 
