@@ -4,13 +4,15 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 sourceSets {
+
     main {
         java {
             srcDir 'src'
         }
-        resources {
+        resources{
             srcDir 'src'
         }
+
     }
 }
 
@@ -29,3 +31,4 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
