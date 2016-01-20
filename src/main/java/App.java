@@ -1,3 +1,4 @@
+import org.omg.CORBA.portable.InputStream;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,7 +15,9 @@ public class App {
         fabrica.setNamespaceAware(true);
         SAXParser parser = fabrica.newSAXParser();
         //parser.parse(new File(App.class.getResource("/lliga1.xml").getFile()), new Processar());
-        for (String fichero : nombresFicheros)
-            parser.parse(new File(App.class.getResource(fichero).getFile()), new Processar());
+        for (String fichero : nombresFicheros) {
+            java.io.InputStream entrada = App.class.getResourceAsStream(fichero);
+            parser.parse(entrada,new Processar());
+        }
     }
 }
