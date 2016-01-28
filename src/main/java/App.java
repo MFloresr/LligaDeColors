@@ -14,7 +14,6 @@ public class App {
         SAXParserFactory fabrica = SAXParserFactory.newInstance();
         fabrica.setNamespaceAware(true);
         SAXParser parser = fabrica.newSAXParser();
-        //parser.parse(new File(App.class.getResource("/lliga1.xml").getFile()), new Processar());
         for (String fichero : nombresFicheros) {
             java.io.InputStream entrada = App.class.getResourceAsStream(fichero);
             parser.parse(entrada,new Processar());
